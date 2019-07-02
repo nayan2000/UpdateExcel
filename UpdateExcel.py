@@ -30,11 +30,10 @@ def get_input():
     return product_name, hsn_code, rate, gst_rate
 
 def update_excel(product_name, hsn_code, rate, gst_rate):
-    file_path = 'sample.xlsx'
-    #this file_path can be full path also, like
-    #file_path = 'F:\My Files\Excels\sample.xlsx'
+    file_path = r'c:\Users\personal\Desktop\BILLING SOFTWARE.xlsx'
     book = openpyxl.load_workbook(file_path)
-    sheet = book.active
+    sheetName = 'Itemdetail'
+    sheet = book[sheetName]
     sheet.append((product_name, hsn_code, rate, gst_rate))
     book.save(file_path)
     
